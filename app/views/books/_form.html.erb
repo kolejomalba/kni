@@ -1,0 +1,56 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isbn13 %>
+    <%= form.number_field :isbn13 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coverimage %>
+    <%= form.text_field :coverimage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instock_total %>
+    <%= form.number_field :instock_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instock_now %>
+    <%= form.number_field :instock_now %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author_id %>
+    <%= form.text_field :author_id %></br></br>
+    <%= form.collection_check_boxes :author_id, Author.all, :id, :fullname, prompt: true %>  
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<% console %>

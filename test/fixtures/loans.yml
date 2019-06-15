@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_loaned: 2019-06-13
+  date_returned: 2019-06-13
+  confirmed: false
+  book: one
+  user: one
+
+two:
+  date_loaned: 2019-06-13
+  date_returned: 2019-06-13
+  confirmed: false
+  book: two
+  user: two

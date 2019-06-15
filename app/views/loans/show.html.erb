@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date loaned:</strong>
+  <%= @loan.date_loaned %>
+</p>
+
+<p>
+  <strong>Date returned:</strong>
+  <%= @loan.date_returned %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @loan.confirmed %>
+</p>
+
+<p>
+  <strong>Books:</strong></br>
+    <% @loan.books.each do |book| %>
+      <% if book.equal?(@loan.books.last)%>
+        <%= book.title %>
+      <% else%>
+        <%= book.title %></br>
+      <% end %>          
+    <% end %>          
+
+
+
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @loan.user.name + ', ' + @loan.user.email + ', ' + @loan.user.phone %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>
+
+ <% console %>

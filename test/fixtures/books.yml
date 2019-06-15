@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  isbn13: 1
+  description: MyText
+  coverimage: MyString
+  instock_total: 1
+  instock_now: 1
+  author: one
+
+two:
+  title: MyString
+  isbn13: 1
+  description: MyText
+  coverimage: MyString
+  instock_total: 1
+  instock_now: 1
+  author: two
