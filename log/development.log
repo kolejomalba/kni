@@ -4430,3 +4430,62 @@ Processing by LoansController#index as HTML
 Completed 200 OK in 63ms (Views: 56.7ms | ActiveRecord: 2.4ms)
 
 
+Started GET "/loans" for ::1 at 2019-06-17 09:20:01 +0200
+Processing by LoansController#index as HTML
+  Rendering loans/index.html.erb within layouts/application
+  [1m[36mLoan Load (0.4ms)[0m  [1m[34mSELECT "loans".* FROM "loans"[0m
+  ↳ app/views/loans/index.html.erb:18
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "loan_items" ON "books"."id" = "loan_items"."book_id" WHERE "loan_items"."loan_id" = ?[0m  [["loan_id", 1]]
+  ↳ app/views/loans/index.html.erb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/loans/index.html.erb:24
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "loan_items" ON "books"."id" = "loan_items"."book_id" WHERE "loan_items"."loan_id" = ?[0m  [["loan_id", 2]]
+  ↳ app/views/loans/index.html.erb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/loans/index.html.erb:24
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "loan_items" ON "books"."id" = "loan_items"."book_id" WHERE "loan_items"."loan_id" = ?[0m  [["loan_id", 3]]
+  ↳ app/views/loans/index.html.erb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/loans/index.html.erb:24
+  Rendered loans/index.html.erb within layouts/application (84.7ms)
+Completed 200 OK in 6932ms (Views: 6898.2ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/loans" for ::1 at 2019-06-17 09:20:11 +0200
+Processing by LoansController#index as HTML
+  Rendering loans/index.html.erb within layouts/application
+  [1m[36mLoan Load (0.4ms)[0m  [1m[34mSELECT "loans".* FROM "loans"[0m
+  ↳ app/views/loans/index.html.erb:18
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "loan_items" ON "books"."id" = "loan_items"."book_id" WHERE "loan_items"."loan_id" = ?[0m  [["loan_id", 1]]
+  ↳ app/views/loans/index.html.erb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/loans/index.html.erb:24
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "loan_items" ON "books"."id" = "loan_items"."book_id" WHERE "loan_items"."loan_id" = ?[0m  [["loan_id", 2]]
+  ↳ app/views/loans/index.html.erb:23
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/loans/index.html.erb:24
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "loan_items" ON "books"."id" = "loan_items"."book_id" WHERE "loan_items"."loan_id" = ?[0m  [["loan_id", 3]]
+  ↳ app/views/loans/index.html.erb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/loans/index.html.erb:24
+  Rendered loans/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 65ms (Views: 59.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/books" for ::1 at 2019-06-17 09:20:18 +0200
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/books/index.html.erb:8
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:28
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/index.html.erb:37
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/index.html.erb:37
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/index.html.erb:37
+  Rendered books/index.html.erb within layouts/application (140.5ms)
+Completed 200 OK in 191ms (Views: 181.6ms | ActiveRecord: 4.9ms)
+
+
