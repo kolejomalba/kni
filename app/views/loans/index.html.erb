@@ -20,8 +20,8 @@
         <td><%= loan.date_loaned %></td>
         <td><%= loan.date_returned %></td>
         <td><%= loan.confirmed %></td>
-        <td><%= loan.books %></td>
-        <td><%= loan.user %></td>
+        <td><%= loan.books.map(&:title).join(',') %></td>
+        <td><%= loan.user.name + ', ' + loan.user.email + ', ' + loan.user.phone  %></td>
         <td><%= link_to 'Show', loan %></td>
         <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
         <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

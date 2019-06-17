@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Books</h1>
+<h1>New book loan:</h1>
+
+<%= form_with model: @loan, url: '/loans'  do |form| %>
+
+  <div>
+    <%= form.collection_select :user_id, User.all, :id, :name, {:prompt => 'Please select user for this book loan'} %>
+  </div>
+  </br>
+
 
 <table>
   <thead>
@@ -26,38 +34,28 @@
         <td><%= book.instock_total %></td>
         <td><%= book.instock_now %></td>
 
-        <td>
-          <% book.authors.each do |author| %>
-            <% if author.equal?(book.authors.last)%>
-              <%= author.fullname %>
-            <% else%>
-              <%= author.fullname + ';'%>
-            <% end %>          
-          <% end %>          
-        </td>
+        <td><%= book.authors.map(&:fullname).join(';') %></td>
+
 
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>
             <% if book.instock_now > 0 %>
-              <%= check_box("loan", :loaned) %>
-
+              
+              <%= check_box_tag "loan[book_ids][]", book.id, @loan.books.include?(book), {:id => dom_id(book, dom_id(@loan)) } %>
             <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<h2>BooksAgain</h2>
-
-<%= form_with model: @book do |form| %>
-  <%= form.text_field :title %>
-  <%= form.text_field :isbn13 %>
-  <%= check_box_tag :send_welcome_email %>
+<div class="actions">
   <%= form.submit %>
+</div>  
+
 <% end %>
+
 
 <br>
 

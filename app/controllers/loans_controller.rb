@@ -14,6 +14,7 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
+    #params[:loan][:book_ids] ||=[]
     @loan = Loan.new
   end
 
@@ -40,6 +41,7 @@ class LoansController < ApplicationController
   # PATCH/PUT /loans/1
   # PATCH/PUT /loans/1.json
   def update
+    params[:loan][:book_ids] ||=[]
     respond_to do |format|
       if @loan.update(loan_params)
         format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
@@ -69,6 +71,7 @@ class LoansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_params
-      params.require(:loan).permit(:date_loaned, :date_returned, :confirmed, :book_id, :user_id)
+      #params.require(:loan).permit(:date_loaned, :date_returned, :confirmed, :book_id, :user_id)
+      params.require(:loan).permit!
     end
 end

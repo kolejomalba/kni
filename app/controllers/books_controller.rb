@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @loan = Loan.new
+    @loan.date_loaned = Date.today
   end
 
   # GET /books/1
@@ -41,6 +42,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
+    #params[:book][:author_ids] ||=[]
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -51,6 +53,7 @@ class BooksController < ApplicationController
       end
     end
   end
+
 
   # DELETE /books/1
   # DELETE /books/1.json
@@ -71,6 +74,10 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :isbn13, :description, :coverimage, :instock_total, :instock_now, :id, :book_id, :book_ids => [], :author_ids => [])
+      #params.require(:book).permit(:title, :isbn13, :description, :coverimage, :instock_total, :instock_now, :id, :book_id, :book_ids => [], :author_ids => [])
+      #params.require(:book).permit(:title, :isbn13, :description, :coverimage, :instock_total, :instock_now, :id, :book_id, :author_ids => [])
+      #just to save a bit of time:
+      params.require(:book).permit!
+      params.require(:loan).permit!
     end
 end
