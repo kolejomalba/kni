@@ -7,6 +7,9 @@
   <div>
     <%= form.collection_select :user_id, User.all, :id, :name, {:prompt => 'Please select user for this book loan'} %>
   </div>
+  <div>
+  <%= form.date_field(:date_loaned, value: Date.today) %>
+  </div>
   </br>
 
 

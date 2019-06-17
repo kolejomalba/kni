@@ -78,6 +78,6 @@ class BooksController < ApplicationController
       #params.require(:book).permit(:title, :isbn13, :description, :coverimage, :instock_total, :instock_now, :id, :book_id, :author_ids => [])
       #just to save a bit of time:
       params.require(:book).permit!
-      params.require(:loan).permit!
+      #params.require(:loan).permit!
     end
 end

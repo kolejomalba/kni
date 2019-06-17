@@ -43,10 +43,9 @@
 
   <div class="field">
     <%= form.label :author_id %>
-    <%= form.text_field :author_id %></br></br>
     <%= form.collection_check_boxes(:author_ids, Author.all, :id, :fullname, checked: book.authors.map(&:id)) do |b| %>    
-    <%= b.check_box %> <%= b.label %>
-  <% end %>
+      <%= b.check_box %> <%= b.label %>
+    <% end %>
 
   </div>
   
