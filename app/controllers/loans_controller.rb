@@ -29,6 +29,8 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
+        # for each book loaned, we decrease quantity available by 1
+        decrease_book_quantities(@loan.books)
         format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
         format.json { render :show, status: :created, location: @loan }
       else
@@ -65,6 +67,14 @@ class LoansController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def decrease_book_quantities(books)
+      books.each do |loaned|
+        b = Book.find(loaned.id)
+        b.instock_now -= 1
+        b.save
+      end
+    end
+
     def set_loan
       @loan = Loan.find(params[:id])
     end
